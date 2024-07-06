@@ -1,0 +1,10 @@
+
+
+run_test "i=0; while [ \$i -lt 3 ]; do if [ \$((i % 2)) -eq 0 ]; then echo 'Even'; else echo 'Odd'; fi; i=\$((i+1)); done" "Nested if within while loop"
+
+run_test "i=0; until [ \$i -eq 3 ]; do j=0; while [ \$j -lt \$i ]; do echo \$j; j=\$((j+1)); done; i=\$((i+1)); done" "Nested while within until loop"
+
+run_test "if true; then if false; then echo 'Won't print'; else echo 'Will print'; fi; else echo 'Won't print'; fi" "Nested if with true and false"
+
+run_test "seq 1 5 | while read num; do if [ \$((num % 2)) -eq 0 ]; then if [ \$((num % 4)) -eq 0 ]; then echo 'Divisible by 4'; else echo 'Even but not by 4'; fi; else echo 'Odd'; fi; done" "Nested if within seq and while loop"
+

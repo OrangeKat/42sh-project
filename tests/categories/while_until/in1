@@ -1,0 +1,6 @@
+while true; do
+    echo hello;
+    until ! true; do
+        echo hihi;
+    done;
+done
